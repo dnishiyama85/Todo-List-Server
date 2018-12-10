@@ -1,6 +1,7 @@
 #!/bin/bash
 today=$(date "+%Y%m%d-%H%M%S")
-DIR=$(cd $(dirname $0); pwd)/backup
+DIR=$(cd $(dirname $0); pwd)
 backupfile="save.json-${today}.gz"
-OUT_FILE=${DIR}/${backupfile}
-gzip -c save.json > ${OUT_FILE}
+TARGET_FILE=${DIR}/save.json
+OUT_FILE=${DIR}/backup/${backupfile}
+gzip -c ${TARGET_FILE} > ${OUT_FILE}
